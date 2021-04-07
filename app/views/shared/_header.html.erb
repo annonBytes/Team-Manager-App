@@ -1,0 +1,50 @@
+<section class="hero is-link is-small">
+    <!-- Hero head: will stick at the top -->
+    <div class="hero-head">
+        <nav class="navbar">
+            <div class="container">
+                <div class="navbar-brand">
+                    <%= link_to root_path, class: "navbar-item" do %>
+                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path opacity="0.4" d="M22.3596 13.6209C24.1034 13.3759 25.4459 11.8809 25.4496 10.0696C25.4496 8.28463 24.1484 6.80463 22.4421 6.52463" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M24.6606 17.8129C26.3494 18.0654 27.5281 18.6566 27.5281 19.8754C27.5281 20.7141 26.9731 21.2591 26.0756 21.6016" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M14.8584 18.3297C10.8409 18.3297 7.40967 18.9385 7.40967 21.3697C7.40967 23.7997 10.8197 24.426 14.8584 24.426C18.8759 24.426 22.3059 23.8235 22.3059 21.391C22.3059 18.9585 18.8972 18.3297 14.8584 18.3297Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path opacity="0.4" fill-rule="evenodd" clip-rule="evenodd" d="M14.8585 14.8599C17.4948 14.8599 19.6323 12.7236 19.6323 10.0861C19.6323 7.44988 17.4948 5.31238 14.8585 5.31238C12.2223 5.31238 10.0848 7.44988 10.0848 10.0861C10.0748 12.7136 12.196 14.8511 14.8235 14.8599H14.8585Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path opacity="0.4" d="M7.35611 13.6209C5.61111 13.3759 4.26986 11.8809 4.26611 10.0696C4.26611 8.28463 5.56736 6.80463 7.27361 6.52463" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M5.055 17.8129C3.36625 18.0654 2.1875 18.6566 2.1875 19.8754C2.1875 20.7141 2.7425 21.2591 3.64 21.6016" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="has-text-weight-bold is-size-4 ml-4">Teamly</span>
+                    <% end %>
+                    <span class="navbar-burger" data-target="navbarMenuHeroA">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                </div>
+                <div id="navbarMenuHeroA" class="navbar-menu">
+                    <div class="navbar-end">
+                        <span class="navbar-item">
+                            <%= link_to "Create new team" , new_team_path, class:"button is-success"%>
+                        </span>
+                        <span class="navbar-item">
+                            <%= link_to "Create new member" , new_member_path, class:"button is-outlined"%>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Hero content: will be in the middle -->
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <p class="title">
+                <% if content_for(:title)%>
+                    <%= yield :title %>
+                        <% else %>
+                            Teams
+                            <% end %>
+            </p>
+        </div>
+    </div>
+</section>

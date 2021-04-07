@@ -1,0 +1,39 @@
+<% content_for :title do %>
+  <%= @team.name %> &ndash; <%= DateTime.now.to_s(:_date)%>
+<% end %>
+
+<div class="columns mt-6 is-centered">
+    <div class="column is-one-third"> 
+       <nav class="panel is-link"> 
+         <p class="panel-heading">
+           <%= @team.name %> 
+        </p>
+
+          <% @team.members.each do |member| %> 
+              <%= link_to member_path(member) do %>
+              <div class="card">
+                  <div class="card-content">
+                     <p class="italic"> Logged
+                      <%= time_ago_in_words(member.created_at) %> ago
+                     </p><br/>
+                      <%= member.firstname%> firstname
+                      <%= member.lastname%> lastname
+                      <%= member.birthday%>  birthday
+                      <%= member.number%>   number
+                  </div>
+              </div>
+              <% end %>
+          <% end %>
+      </nav>
+
+          <div class="columns is-mobile">
+              <div class="column">
+                <%= link_to 'Edit', edit_team_path(@team), class: "button is-gray" %> 
+                <%= link_to 'Back', root_path(@team), class: "button is-gray" %> 
+                <%= link_to 'Delete', team_path(@team), method: :delete, data: { confirm: "Are you sure?" }, class: "button is-gray" %>
+              </div>
+          </div>
+
+      
+    </div>
+</div>

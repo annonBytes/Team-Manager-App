@@ -1,0 +1,34 @@
+<% content_for :title do %>
+  Members  &ndash; <%= DateTime.now.to_s(:_date) %>
+<% end %>
+
+<div class="columns mt-6 is-centered">
+       <% @members.each do |member| %>
+          <div class="column is-one-quarter">
+               <div class="card">
+                  <header class="card-header">
+                    <p class="card-header-title"><%= member.team.name %></p>
+                 </header>
+
+                  <div class="card-content"> 
+                      <div class="content">
+                        <p>firstname:<span class="has-text-weight-bold"><%= member.firstname %></span></p>                    
+                        <p>lastname:<span class="has-text-weight-bold"><%= member.lastname %></span> </p>
+                        <p>number:<span class="has-text-weight-bold"><%= member.number %></span> </p>
+                        <p>birthday:<span class="has-text-weight-bold"><%= member.birthday %></span></p> 
+                        <p class="italic">Logged <%= time_ago_in_words(member.created_at) %> ago</p>            
+                      </div>
+                  </div>
+
+                  <div class="card-footer">
+                      <%= link_to 'Show', member, class: "card-footer-item" %>
+                      <%= link_to 'Edit', edit_member_path(member), class: "card-footer-item" %>
+                      <%= link_to 'Destroy', member, method: :delete, data: { confirm: 'Are you sure?' }, class: "card-footer-item" %>
+                  </div>
+               </div>
+          </div>
+       <% end %>
+</div>
+
+
+
